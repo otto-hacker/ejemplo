@@ -1,0 +1,206 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ser un hacker</title>
+    <!-- Metadatos para SEO -->
+    <meta name="description" content="Página de Ethical Hacking con partículas JS.">
+    <meta name="keywords" content="Ethical Hacking, Particles JS, Seguridad Informática">
+
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900&display=swap" rel="stylesheet">
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="./css/estilos.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <!-- CSS para el efecto neon -->
+    <style>
+        /*
+            width = height = 50px
+            border-width = 8px
+            time = 1s
+        */
+        .infinity-loader {
+            width: 90px; /* 2 x width - border-width */
+            height: 50px; /* width */
+            position: relative; /* Cambiado a relativo para flujo correcto */
+        }
+
+        .infinity-loader .bg div,
+        .infinity-loader > .fg > div > div {
+            width: 50px; /* width */
+            height: 50px; /* width */
+            border: 8px solid #aaa; /* border-width solid #aaa */
+            box-sizing: border-box; /* so that its border won't increase its width */
+            border-radius: 50%; /* to make the div round */
+            position: absolute;
+        }
+
+        .infinity-loader .right-bg {
+            transform: translate(100%, 0);
+            left: -8px; /* -border-width */
+        }
+
+        .infinity-loader > .fg > div > div {
+            border-color: #34c534 #34c534 transparent transparent; /* Cambia el color aquí */
+            transform: rotate(135deg);
+            animation: spin 1s linear infinite; /* spin time linear infinite */
+            position: static; /* add this otherwise transformation in its parent won't work as expect */
+        }
+
+        .infinity-loader > .fg > div {
+            clip: rect(0, 50px, 25px, 0); /* 0, width, width/2, 0 */
+            position: absolute; /* required for using clip: rect() */
+        }
+
+        .infinity-loader > .fg > .bottom-right-rect {
+            left: -8px; /* -border-width */
+            transform: translateX(100%) scale(1, -1);
+        }
+
+        .infinity-loader > .fg > .bottom-right-rect > div {
+            animation-delay: 0.25s; /* time/4 */
+        }
+
+        .infinity-loader > .fg > .top-right-rect {
+            left: -8px; /* -border-width */
+            transform: translateX(100%) scale(-1, 1);
+        }
+
+        .infinity-loader > .fg > .top-right-rect > div {
+            animation-delay: 0.5s; /* (2 x time)/4 */
+        }
+
+        .infinity-loader > .fg > .bottom-left-rect {
+            transform: scale(-1);
+        }
+
+        .infinity-loader > .fg > .bottom-left-rect > div {
+            animation-delay: 0.75s; /* (3 x time)/4 */
+        }
+
+        .infinity-loader > .fg {
+            filter: drop-shadow(0 0 6px #34c534); /* Cambia el color de la sombra aquí */
+        }
+
+        @keyframes spin {
+            50%, 100% {
+                transform: rotate(495deg); /* (360 + 135)deg */
+            }
+        }
+        /* Estilos para la barra de scroll */
+        ::-webkit-scrollbar {
+            width: 10px;
+            background-color: #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #34c534;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ID Particles.js -->
+    <div id="particles-js"></div>
+    <header class="contenedor header">
+        <!-- Barra de navegación -->
+        <nav class="barra-navegacion">
+            <ul>
+                <li><a href="#seccion-hacking">Acerca de</a></li>
+                <li><a href="#">Eventos</a></li>
+                <li>
+                    <a href="#" class="logo">
+                        <i class="fas fa-biohazard"></i>
+                    </a>
+                </li>
+                <li><a href="#">Filosofía</a></li>
+                <li>
+                    <!-- Efecto Neon -->
+                        <div class="infinity-loader">
+                            <div class="bg">
+                                <!-- background circles -->
+                                <div class="left-bg"></div>
+                                <div class="right-bg"></div>
+                            </div>
+                            <div class="fg">
+                                <!-- foreground circles -->
+                                <div class="top-left-rect">
+                                    <div></div>
+                                </div>
+                                <div class="bottom-right-rect">
+                                    <div></div>
+                                </div>
+                                <div class="top-right-rect">
+                                    <div></div>
+                                </div>
+                                <div class="bottom-left-rect">
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Fin Efecto Neon -->
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Título y descripción -->
+        <div class="contenido-descripcion">
+            <div>
+                <h1 class="titulo">
+                    <span>Ser</span>
+                    <span>Hacker</span>
+                </h1>
+                <article class="descripcion">
+                    <p>Ser hacker conlleva dominar habilidades técnicas avanzadas en el campo de la informática, especialmente en seguridad informática y programación. Implica un profundo entendimiento de sistemas informáticos, redes y protocolos, así como la capacidad de identificar vulnerabilidades y desarrollar soluciones innovadoras para problemas complejos. Ser hacker también implica un compromiso ético fundamental, utilizando estas habilidades de manera responsable y legal para mejorar la seguridad de sistemas y proteger la privacidad de los usuarios.</p>
+                    <a href="#" id="play-audio-btn" class="btn-link">Conviértete en uno</a>
+                </article>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección: Ser un Hacker Ético -->
+    <section class="contenedor seccion-hacking" id="seccion-hacking">
+        <h2>Ser un Hacker Ético</h2>
+        <p>El Ethical Hacking se refiere a la práctica de utilizar habilidades de hacking de manera ética y legal para identificar vulnerabilidades en sistemas de información. Es fundamental para mejorar la seguridad informática y proteger la privacidad de los usuarios.</p>
+    </section>
+
+    <!-- Iconos de redes sociales -->
+    <ul class="redes-sociales">
+        <li><a href="#"><i class="fab fa-facebook-f icon"></i></a></li>
+        <li><a href="#"><i class="fab fa-twitter icon"></i></a></li>
+        <li><a href="#"><i class="fab fa-linkedin-in icon"></i></a></li>
+        <li><a href="#"><i class="fab fa-google-plus-g icon"></i></a></li>
+    </ul>
+
+    <!-- Audio de alerta -->
+    <audio id="alert-sound">
+        <source src="audio/Alert.mp3" type="audio/mp3">
+        Tu navegador no soporta la reproducción de audio.
+    </audio>
+
+    <!-- JS Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- JS FontAwesome -->
+    <script src="https://kit.fontawesome.com/a2e8d0339c.js"></script>
+
+    <!-- JS para reproducir el audio -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('alert-sound');
+            var playButton = document.getElementById('play-audio-btn');
+
+            playButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                audio.currentTime = 0; // Reinicia el audio
+                audio.play();
+            });
+        });
+    </script>
+</body>
+</html>
